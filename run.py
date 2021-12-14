@@ -1,5 +1,8 @@
-from cgnal.logging.defaults import configFromFile, getLogger
-from process import Process
+from cgnal.logging import configFromFile, getLogger
+
+configFromFile("logging.yaml")
+
+from process import Process, logger as process_logger
 
 import warnings
 
@@ -22,9 +25,9 @@ def handle_exception(logger):
 
 if __name__ == "__main__":
 
-    configFromFile("logging.yaml")
-
     logger = handle_exception(getLogger("runner"))
+
+    process_logger.info("here!!!!!")
 
     logger.info("This is the main...")
 

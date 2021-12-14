@@ -1,4 +1,4 @@
-from cgnal.logging.defaults import WithLogging
+from cgnal.logging import WithLogging
 
 class Mean(WithLogging):
 

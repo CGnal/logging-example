@@ -1,1 +1,3 @@
-cgnal-analytics==1.2.3
+numpy==1.16.1
+cfg-load==0.9.0
+slackclient==2.9.3

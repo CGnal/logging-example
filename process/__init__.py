@@ -1,8 +1,11 @@
-from cgnal.logging.defaults import WithLogging
-from cgnal.utils.decorators import lazyproperty as lazy
+from cgnal.logging import WithLogging, getLogger
 from stats import Mean
 
 import numpy as np
+
+logger = getLogger(__name__)
+
+logger.info("Initialization of the Process module")
 
 class Process(WithLogging):
 
@@ -10,9 +13,7 @@ class Process(WithLogging):
         self.logger.info(f"Inizializing Process with n={n}")
         self.n = n
 
-    @lazy
-    def operation(self) -> Mean:
-        return Mean()
+        self.operation = Mean()
 
     def run(self):
 
