@@ -29,9 +29,9 @@ def handle_exception(logger):
 if __name__ == "__main__":
     logger = handle_exception(getLogger("runner"))
 
-    process_logger.info("here!!!!!")
-
     logger.info("This is the main...")
+
+    process_logger.debug("This is a logger process")
 
     logger.debug("Instantiating the process")
 
@@ -39,9 +39,9 @@ if __name__ == "__main__":
 
     logger.error("This is an error")
 
-    warnings.warn("mario", FutureWarning)
+    warnings.warn("This is a warning", FutureWarning)
 
-    logger.warning("This is a warning")
+    logger.warning("This is a warning of the runner")
 
     logger.debug("Execution now...")
 
