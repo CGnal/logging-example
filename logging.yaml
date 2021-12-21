@@ -6,20 +6,18 @@ formatters:
 
 handlers:
 
-    console:
-        class: logging.StreamHandler
-        level: DEBUG
+    file_handler:
+        class: logging.handlers.RotatingFileHandler
         formatter: simple
-        stream: ext://sys.stdout
+        level: "DEBUG"
+        filename: "/tmp/logs/log.log"
+        maxBytes: 1000
+        backupCount: 20
+        encoding: utf8
 
 loggers:
 
   "":
-      handlers: ['console']
+      handlers: ['file_handler']
       level: 'INFO'
       propagate: True
-
-  py.warnings:
-      handlers: ['console']
-      level: 'WARN'
-      propagate: False
