@@ -1,4 +1,7 @@
+from logging import StreamHandler, Formatter
+
 from slack import WebClient
+
 
 class SlackHandler(StreamHandler):
     def __init__(self, config):
@@ -6,10 +9,13 @@ class SlackHandler(StreamHandler):
         self.token = config.slack.token
         self.proxy = config.proxies.http
         self.channel = config.slack.channel
-        self.prefix =  config.slack.prefix
-        self.slack_client = WebClient(token=self.token, run_async=False, proxy=self.proxy)
-        formatter = logging.Formatter(
-            "%(asctime)s - %(levelname)s - [%(name)s] - [%(module)s] - %(funcName)s() - %(message)s"
+        self.prefix = config.slack.prefix
+        self.slack_client = WebClient(
+            token=self.token, run_async=False, proxy=self.proxy
+        )
+        formatter = Formatter(
+            "%(asctime)s - %(levelname)s - [%(name)s] - "
+            "[%(module)s] - %(funcName)s() - %(message)s"
         )
         self.setFormatter(formatter)
 

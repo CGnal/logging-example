@@ -1,11 +1,12 @@
+import numpy as np  # type: ignore
+
 from cgnal.logging import WithLogging, getLogger
 from stats import Mean
-
-import numpy as np
 
 logger = getLogger(__name__)
 
 logger.info("Initialization of the Process module")
+
 
 class Process(WithLogging):
 
@@ -16,7 +17,6 @@ class Process(WithLogging):
         self.operation = Mean()
 
     def run(self):
-
         self.logger.info("Running process")
 
         self.logger.debug("Creating random values")
